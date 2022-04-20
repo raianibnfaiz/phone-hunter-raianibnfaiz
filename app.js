@@ -25,6 +25,7 @@ const toggleSpinner = displayStyle => {
 
 }
 
+// display Result function
 
 const displaySearchResult = data => {
     const searchResultField = document.getElementById('search-result');
@@ -47,8 +48,12 @@ const displaySearchResult = data => {
         console.log(phone);
     })
 
-    console.log(data);
+    //console.log(data);
+
 }
+
+// Load Single Phone Detail function 
+
 const loadPhoneDetail = idPhone => {
     document.getElementById('single-phone-detail').style.display = 'block';
     const url = ` https://openapi.programming-hero.com/api/phone/${idPhone}`
@@ -57,6 +62,9 @@ const loadPhoneDetail = idPhone => {
         .then(phone => displaySinglePhoneDetail(phone.data));
 
 }
+
+//display single phone card html
+
 const displaySinglePhoneDetail = phone => {
     const singlePhoneDetailField = document.getElementById('single-phone-detail');
 
@@ -98,6 +106,6 @@ const displaySinglePhoneDetail = phone => {
     singlePhoneDetailField.appendChild(div);
     singlePhoneDetailField.appendChild(releaseInfo);
     singlePhoneDetailField.appendChild(mainFeatures);
-    console.log(phone)
-    console.log(phone.mainFeatures.sensors);
+    //console.log(phone)
+    //console.log(phone.mainFeatures.sensors);
 }
