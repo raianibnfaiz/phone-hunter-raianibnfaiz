@@ -16,6 +16,14 @@
         #single-phone-detail {
             display: none;
         }
+
+        #invalid-input-error-message {
+            display: none;
+        }
+
+        #something-went-wrong-error-message {
+            display: none;
+        }
     </style>
 </head>
 
@@ -32,12 +40,24 @@
             id="button-search">Search</button>
     </div>
 
+    <div id="something-went-wrong-error-message">
+        <p class="text-center d-flex justify-content-center text-danger">
+            Something went wrong. Please try again
+        </p>
+    </div>
+    <div id="invalid-input-error-message">
+        <p class="text-center d-flex justify-content-center text-danger">
+            Please give a valid input.
+        </p>
+    </div>
+
     <!-- display single selected phone -->
 
     <div class=" mx-auto mt-3 mb-4 " style="max-width: 23rem">
         <div id="single-phone-detail" class="card" style="border: 1px solid rgb(224, 175, 175)">
 
         </div>
+
         <div class="text-center d-flex justify-content-center">
             <div id="spinner" class="spinner-border" role="status">
                 <span class="visually-hidden">Loading...</span>

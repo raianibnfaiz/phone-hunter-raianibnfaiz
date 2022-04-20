@@ -1,12 +1,22 @@
 const searchPhone = () => {
     const phoneTextField = document.getElementById('search-field');
     const phoneInputValue = phoneTextField.value;
-    toggleSpinner('block');
-    console.log(phoneInputValue);
-    const url = ` https://openapi.programming-hero.com/api/phones?search=${phoneInputValue}`;
-    fetch(url)
-        .then(res => res.json())
-        .then(phone => displaySearchResult(phone.data));
+    if (phoneInputValue == '') {
+        invalidInputErrorMessage('block');
+    }
+    else {
+        invalidInputErrorMessage('none');
+        toggleSpinner('block');
+        console.log(phoneInputValue);
+        const url = ` https://openapi.programming-hero.com/api/phones?search=${phoneInputValue}`;
+        fetch(url)
+            .then(res => res.json())
+            .then(phone => displaySearchResult(phone.data.slice(0, 20)));
+    }
+    phoneTextField.value = '';
+}
+const invalidInputErrorMessage = (displayStyle) => {
+    document.getElementById('invalid-input-error-message').style.display = displayStyle;
 }
 // Add spinner
 const toggleSpinner = displayStyle => {
