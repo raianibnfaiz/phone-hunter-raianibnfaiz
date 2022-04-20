@@ -1,11 +1,17 @@
 const searchPhone = () => {
     const phoneTextField = document.getElementById('search-field');
     const phoneInputValue = phoneTextField.value;
+    toggleSpinner('block');
     console.log(phoneInputValue);
     const url = ` https://openapi.programming-hero.com/api/phones?search=${phoneInputValue}`;
     fetch(url)
         .then(res => res.json())
         .then(phone => displaySearchResult(phone.data));
+}
+// Add spinner
+const toggleSpinner = displayStyle => {
+    document.getElementById('spinner').style.display = displayStyle;
+
 }
 
 const displaySearchResult = data => {
@@ -25,11 +31,13 @@ const displaySearchResult = data => {
             </div>
         `;
         searchResultField.appendChild(div);
+        toggleSpinner('none');
         console.log(phone);
     })
     console.log(data);
 }
 const loadPhoneDetail = idPhone => {
+    document.getElementById('single-phone-detail').style.display = 'block';
     const url = ` https://openapi.programming-hero.com/api/phone/${idPhone}`
     fetch(url)
         .then(res => res.json())
@@ -38,6 +46,7 @@ const loadPhoneDetail = idPhone => {
 }
 const displaySinglePhoneDetail = phone => {
     const singlePhoneDetailField = document.getElementById('single-phone-detail');
+
     singlePhoneDetailField.textContent = '';
 
     const div = document.createElement('div');
