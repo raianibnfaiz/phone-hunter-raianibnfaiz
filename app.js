@@ -15,6 +15,7 @@ const searchPhone = () => {
     }
     phoneTextField.value = '';
 }
+//get error message function
 const invalidInputErrorMessage = (displayStyle) => {
     document.getElementById('invalid-input-error-message').style.display = displayStyle;
 }
@@ -23,6 +24,7 @@ const toggleSpinner = displayStyle => {
     document.getElementById('spinner').style.display = displayStyle;
 
 }
+
 
 const displaySearchResult = data => {
     const searchResultField = document.getElementById('search-result');
@@ -44,6 +46,7 @@ const displaySearchResult = data => {
         toggleSpinner('none');
         console.log(phone);
     })
+
     console.log(data);
 }
 const loadPhoneDetail = idPhone => {
